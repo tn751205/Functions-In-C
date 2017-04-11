@@ -1,0 +1,22 @@
+/*  This is quick_sort function. 
+    It's average and best time complexity is O(nlogn), and worst case is O(n^2)
+    It's space complexity is O(logn) ~ O(n)
+*/
+
+void quick_sort(int *nums, int left, int right){
+    if(left>=right) return 0;
+    int pivot = nums[left];
+    int index=left;
+    swap(nums, left, right);
+    int i=0;
+    for(i=left;i<right;i++){
+        if(nums[i]<pivot){
+            swap(nums, index, i);  
+            index++;
+        }
+    }
+    swap(index, right);
+    quick_sort(nums,left, index-1);
+    quick_sort(nums,index+1,right);
+}
+   
